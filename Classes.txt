@@ -1,0 +1,27 @@
+Detailed explanation of the classes and their relationships:
+
+1. Location:
+Represents the user's location and includes the latitude and longitude.
+Can also include additional information such as city, state, country, zip code, etc.
+Has a relationship with WeatherForecast as the user's location is used to obtain weather data and provide weather forecasts.
+
+2. WeatherData:
+Represents the current weather data and includes temperature, humidity, pressure, and other relevant information.
+May also include historical weather data for the location.
+Has a relationship with WeatherForecast as it provides the current weather information that will be used to provide the weather forecast.
+
+3. WeatherService:
+Abstract class that defines a common interface for different weather services.
+Defines functions such as getWeatherData() that will be implemented by concrete weather services.
+Has a relationship with OpenWeatherMapService as it is the concrete implementation of the WeatherService used in this program.
+
+4. OpenWeatherMapService:
+Concrete implementation of WeatherService that uses the OpenWeatherMap API to obtain weather data.
+Implements the functions defined in the WeatherService abstract class, such as getWeatherData().
+Has a relationship with WeatherForecast as it provides the weather data used to provide the weather forecast.
+
+5. WeatherForecast:
+Uses the WeatherService to obtain weather data and provide weather forecasts.
+Uses the Location and WeatherData classes to provide location-specific weather forecasts.
+May also include additional features, such as providing alerts for severe weather or allowing users to save their favorite locations.
+Has a relationship with Location, WeatherData, WeatherService, and OpenWeatherMapService.
